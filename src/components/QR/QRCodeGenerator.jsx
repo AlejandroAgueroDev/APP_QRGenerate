@@ -66,14 +66,14 @@ const QRCodeGenerator = ({ darkMode }) => {
    <select
     value={inputType}
     onChange={handleInputTypeChange}
-    className="mb-4 p-2 border-2 border-gray-500 rounded-xl"
+    className="mb-2 p-2 border-2 border-gray-500 rounded-xl"
     style={{
      background: darkMode ? "#333333" : "#f9f6f2",
      color: darkMode ? "#f9f6f2" : "#333333",
     }}
    >
     <option value="" hidden>
-     Seleccione de entrada
+     Seleccion de entrada
     </option>
     <option value="CBU/ALIAS">CBU/ALIAS</option>
     <option value="EMAIL">Email</option>
@@ -87,7 +87,7 @@ const QRCodeGenerator = ({ darkMode }) => {
     placeholder={
      inputType ? `Ingrese ${inputType}` : "Seleccione tipo de entrada"
     }
-    className="border-2 text-center border-gray-500 p-2 rounded-xl mb-4 mt-2 w-56 max-w-md"
+    className="border-2 text-center border-gray-500 p-2 rounded-xl mb-3 mt-2 w-56 max-w-md"
     style={{
      background: darkMode ? "#333333" : "#f9f6f2",
      color: darkMode ? "#f9f6f2" : "#333333",

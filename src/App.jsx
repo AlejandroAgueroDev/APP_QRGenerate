@@ -23,7 +23,7 @@ function App() {
         }}
       >
         <ButtonDarkMode darkMode={darkMode} onToggle={toggleDarkMode}/>
-        <h1 className="text-3xl font-bold mt-4 mb-6 uppercase">
+        <h1 className="text-3xl font-bold mt-1 mb-2 uppercase">
           Generador de Código QR
         </h1>
         <QRCodeGenerator darkMode={darkMode} />
