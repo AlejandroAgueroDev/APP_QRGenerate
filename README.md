@@ -54,3 +54,11 @@ Este proyecto tiene como objetivo generar un código QR que pueda copiarse al po
 **Imagen 2:** Muestra un ejemplo de un código QR generado con el proyecto.
 
 ![image](https://github.com/user-attachments/assets/d9ba7913-0437-4c81-b476-d0f23fc738ae)
+
+## Adicionales
+
+### Documentación Adicional
+
+- **React Js:** [Documentación Oficial de React](https://reactjs.org/docs/getting-started.html)
+- **Vite:** [Documentación Oficial de Vite](https://vitejs.dev/)
+- **Librería para generar códigos QR:** Ejemplo de librería utilizada [qrcode.react](https://www.npmjs.com/package/qrcode.react)
