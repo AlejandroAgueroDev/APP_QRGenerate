@@ -1,0 +1,10 @@
+:root {
+    --color-bg: #ffffff; /* Color de fondo en modo claro */
+    --color-text: #333333; /* Color de texto en modo claro */
+  }
+  
+  .dark-mode {
+    --color-bg: #333333; /* Color de fondo en modo oscuro */
+    --color-text: #ffffff; /* Color de texto en modo oscuro */
+  }
+  
