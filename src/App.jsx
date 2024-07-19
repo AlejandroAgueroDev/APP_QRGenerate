@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import QRCodeGenerator from "./components/QR/QRCodeGenerator";
-import ButtonDarkMode from "./components/Buttons/ButtonDarkMode/ButtonDarkMode"; // Importar el componente ButtonDarkMode
+import ButtonDarkMode from "./components/Buttons/ButtonDarkMode/ButtonDarkMode"; 
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -23,7 +23,7 @@ function App() {
         }}
       >
         <ButtonDarkMode darkMode={darkMode} onToggle={toggleDarkMode}/>
-        <h1 className="text-3xl font-bold mt-1 mb-2 uppercase">
+        <h1 className="text-2xl sm:text-3xl font-bold mt-1 mb-2 uppercase">
           Generador de Código QR
         </h1>
         <QRCodeGenerator darkMode={darkMode} />

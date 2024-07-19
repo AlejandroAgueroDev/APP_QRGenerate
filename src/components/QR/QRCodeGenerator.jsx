@@ -16,6 +16,8 @@ const QRCodeGenerator = ({ darkMode }) => {
  const [error, setError] = useState("");
  const [buttonDisabled, setButtonDisabled] = useState(true);
  const [inputType, setInputType] = useState("");
+ const [isInputDisabled, setIsInputDisabled] = useState(false);
+ const [isSelectDisabled, setIsSelectDisabled] = useState(false);
  const qrRef = useRef(null);
 
  const handleChange = (event) => {
@@ -37,6 +39,8 @@ const QRCodeGenerator = ({ darkMode }) => {
 
   setQrValue(inputValue);
   setGenerated(true);
+  setIsInputDisabled(true);
+  setIsSelectDisabled(true);
   setError("");
   setButtonDisabled(true);
  };
@@ -50,8 +54,11 @@ const QRCodeGenerator = ({ darkMode }) => {
   setInputValue("");
   setQrValue("");
   setGenerated(false);
+  setIsInputDisabled(false);
+  setIsSelectDisabled(false);
   setError("");
   setButtonDisabled(true);
+  setInputType("");
  };
 
  const handleInputTypeChange = (event) => {
@@ -66,11 +73,14 @@ const QRCodeGenerator = ({ darkMode }) => {
    <select
     value={inputType}
     onChange={handleInputTypeChange}
-    className="mb-2 p-2 border-2 border-gray-500 rounded-xl"
+    className={`mb-2 p-2 border-2 border-gray-500 rounded-xl ${
+     isSelectDisabled ? "cursor-not-allowed" : ""
+    }`}
     style={{
      background: darkMode ? "#333333" : "#f9f6f2",
      color: darkMode ? "#f9f6f2" : "#333333",
     }}
+    disabled={isSelectDisabled}
    >
     <option value="" hidden>
      Seleccion de entrada
@@ -87,12 +97,14 @@ const QRCodeGenerator = ({ darkMode }) => {
     placeholder={
      inputType ? `Ingrese ${inputType}` : "Seleccione tipo de entrada"
     }
-    className="border-2 text-center border-gray-500 p-2 rounded-xl mb-3 mt-2 w-56 max-w-md"
+    className={`border-2 text-center border-gray-500 p-2 rounded-xl mb-3 mt-2 w-56 max-w-md ${
+     !inputType || isInputDisabled ? "cursor-not-allowed" : ""
+    }`}
     style={{
      background: darkMode ? "#333333" : "#f9f6f2",
      color: darkMode ? "#f9f6f2" : "#333333",
     }}
-    disabled={!inputType}
+    disabled={!inputType || isInputDisabled}
    />
    {error && <p className="text-red-500 -mt-2 mb-2">{error}</p>}
 
@@ -106,15 +118,18 @@ const QRCodeGenerator = ({ darkMode }) => {
 
    {qrValue && (
     <>
-     <div
+     <section
       className="flex flex-col items-center border-2 border-gray-800 rounded-xl p-4"
       ref={qrRef}
      >
       <QRCode value={qrValue} />
-     </div>
-     <ButtonCopi onClick={handleCopy} darkMode={darkMode} />
+     </section>
 
-     <ButtonClean onClick={handleClear} darkMode={darkMode} />
+     <section className="flex space-x-4 mt-4">
+      <ButtonCopi onClick={handleCopy} darkMode={darkMode} />
+
+      <ButtonClean onClick={handleClear} darkMode={darkMode} />
+     </section>
 
      <ButtonIMG qrRef={qrRef} darkMode={darkMode} />
 

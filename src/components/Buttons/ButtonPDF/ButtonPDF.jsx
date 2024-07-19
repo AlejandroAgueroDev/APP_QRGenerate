@@ -14,6 +14,11 @@ const ButtonPDF = ({ qrRef, darkMode }) => {
   const x = (pageWidth - imgWidth) / 2;
   const y = (pageHeight - imgHeight) / 2;
 
+  
+  pdf.setFont("helvetica", "bold")
+  pdf.setFontSize(52)
+  pdf.text('ESCANEA MIS DATOS',pageWidth / 2, 38, {align:"center"})
+
   pdf.addImage(imgData, "PNG", x, y, imgWidth, imgHeight);
   pdf.save("qr-code.pdf");
  };
