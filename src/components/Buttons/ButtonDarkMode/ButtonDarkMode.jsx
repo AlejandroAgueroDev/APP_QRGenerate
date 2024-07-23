@@ -1,13 +1,10 @@
-import React, { useState } from "react";
-import "./style.css"; // Importar los estilos desde style.css
+import React from "react";
+import "./style.css";
 
-const ButtonDarkMode = ({ onToggle }) => {
- const [darkMode, setDarkMode] = useState(false);
-
+const ButtonDarkMode = ({ darkMode, onToggle }) => {
  const toggleDarkMode = () => {
   const newMode = !darkMode;
-  setDarkMode(newMode);
-  onToggle(newMode); // Llama a la función de toggle en el componente padre (App.jsx)
+  onToggle(newMode);
  };
 
  return (
@@ -20,7 +17,7 @@ const ButtonDarkMode = ({ onToggle }) => {
     type="checkbox"
     className="toggle-checkbox"
     checked={darkMode}
-    readOnly // Hace que el input sea de solo lectura
+    readOnly
    />
    <div className="toggle-slot">
     <div className="sun-icon-wrapper">
